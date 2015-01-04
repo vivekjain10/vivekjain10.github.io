@@ -4,7 +4,7 @@
   <title><![CDATA[in.vivekjain.blog]]></title>
   <link href="http://blog.vivekjain.in/atom.xml" rel="self"/>
   <link href="http://blog.vivekjain.in/"/>
-  <updated>2015-01-04T16:00:18+05:30</updated>
+  <updated>2015-01-04T16:09:30+05:30</updated>
   <id>http://blog.vivekjain.in/</id>
   <author>
     <name><![CDATA[Vivek Jain]]></name>
@@ -14,11 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Keeping client-side apps light]]></title>
+    <title type="html"><![CDATA[Keeping Client-side Apps Light]]></title>
     <link href="http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light/"/>
     <updated>2015-01-04T15:17:25+05:30</updated>
     <id>http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light</id>
-    <content type="html"><![CDATA[<p>Let&rsquo;s assume that for an iOS app you&rsquo;re building, you have a requirement to display user&rsquo;s name. You check with the API team, they suggest using the user profile API. The name field in the user profile API response looks something like this:</p>
+    <content type="html"><![CDATA[<p>Let&rsquo;s assume for an iOS app you&rsquo;re building, you have a requirement to display user&rsquo;s name. You check with the API team, they suggest using the user profile API. The name field in the user profile API response looks something like this:</p>
 
 <pre><code>  "name": {
     "first": "Mark",
@@ -36,20 +36,20 @@
 
 <ul>
 <li>First and the obvious one is to reduce duplication of logic on the client side. Client-side apps will simply see the required information coming back from the APIs. In the example above, we&rsquo;ll get a full name field along with the first and last name. The app is free to use whichever field makes most sense for the use case.</li>
-<li>Secondly, any defect related to the logic that&rsquo;s been shifted to the servers can be fixed without requiring an app update.</li>
+<li>Secondly, any defect related to logic shifted to the server-side can be fixed without requiring an app update.</li>
 <li>Lastly, changes can be applied without the need to release an update to the app. For example, if the back-end starts capturing middle name along with the first and last name fields, you&rsquo;ll simply update the logic to generate full name.</li>
 </ul>
 
 
 <p>This bring us to the question, how can logic be shifted to the servers?</p>
 
-<p>Since server-side API development is a specialized skill, it&rsquo;s un-fair to expect client-side app developers to design great APIs. Thus, most organizations(specially large ones) have separate teams to manage their back-end services. But this does not mean that client-side developers can&rsquo;t leverage the server-side skills available in-house.</p>
+<p>Since server-side API development is a specialized skill, it&rsquo;s un-fair to expect client-side app developers to design great APIs. Thus, most organizations(specially large ones) have separate teams to manage their back-end services. But this does not mean client-side developers can&rsquo;t leverage server-side skills available in-house.</p>
 
 <p>I&rsquo;m listing three approaches that can be used to shift logic to servers:</p>
 
 <h4>Poly-skilled teams</h4>
 
-<p>When forming a team, ensure that the team has all development skills required to manage the end-to-end stack. For example, a single team can have developers doing iOS, Android and server-side API development.</p>
+<p>When forming a team, ensure the team has all development skills required to manage the end-to-end stack. For example, a single team can have developers doing iOS, Android and server-side API development.</p>
 
 <p>Such a team should be empowered to take on changes in any repository that impacts their work. So in the example above, the server-side API developer would simply clone the user profile API code and make necessary changes to send back a full name field for the apps to consume.</p>
 
