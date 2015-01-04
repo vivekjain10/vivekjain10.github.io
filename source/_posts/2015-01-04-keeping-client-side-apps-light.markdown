@@ -5,7 +5,7 @@ date: 2015-01-04 15:17:25 +0530
 comments: true
 categories: 
 ---
-Let's assume that for an iOS app you're building, you have a requirement to display user's name. You check with the API team, they suggest using the user profile API. The name field in the user profile API response looks something like this:
+Let's assume for an iOS app you're building, you have a requirement to display user's name. You check with the API team, they suggest using the user profile API. The name field in the user profile API response looks something like this:
 
       "name": {
         "first": "Mark",
@@ -21,18 +21,18 @@ At this point, logic to generate full name is duplicated in both the apps. In th
 To avoid this sort of duplication, we need to keep logic on the server-side as much as possible. There are multiple benefits of moving logic to the servers:
 
 * First and the obvious one is to reduce duplication of logic on the client side. Client-side apps will simply see the required information coming back from the APIs. In the example above, we'll get a full name field along with the first and last name. The app is free to use whichever field makes most sense for the use case.
-* Secondly, any defect related to the logic that's been shifted to the servers can be fixed without requiring an app update.
+* Secondly, any defect related to logic shifted to the server-side can be fixed without requiring an app update.
 * Lastly, changes can be applied without the need to release an update to the app. For example, if the back-end starts capturing middle name along with the first and last name fields, you'll simply update the logic to generate full name.
 
 This bring us to the question, how can logic be shifted to the servers?
 
-Since server-side API development is a specialized skill, it's un-fair to expect client-side app developers to design great APIs. Thus, most organizations(specially large ones) have separate teams to manage their back-end services. But this does not mean that client-side developers can't leverage the server-side skills available in-house.
+Since server-side API development is a specialized skill, it's un-fair to expect client-side app developers to design great APIs. Thus, most organizations(specially large ones) have separate teams to manage their back-end services. But this does not mean client-side developers can't leverage server-side skills available in-house.
 
 I'm listing three approaches that can be used to shift logic to servers:
 
 #### Poly-skilled teams
 
-When forming a team, ensure that the team has all development skills required to manage the end-to-end stack. For example, a single team can have developers doing iOS, Android and server-side API development.
+When forming a team, ensure the team has all development skills required to manage the end-to-end stack. For example, a single team can have developers doing iOS, Android and server-side API development.
 
 Such a team should be empowered to take on changes in any repository that impacts their work. So in the example above, the server-side API developer would simply clone the user profile API code and make necessary changes to send back a full name field for the apps to consume.
 
