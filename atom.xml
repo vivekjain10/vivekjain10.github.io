@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://vivekjain10.github.io/atom.xml" rel="self"/>
-  <link href="http://vivekjain10.github.io/"/>
-  <updated>2015-01-04T15:32:11+05:30</updated>
-  <id>http://vivekjain10.github.io/</id>
+  <title><![CDATA[in.vivekjain.blog]]></title>
+  <link href="http://blog.vivekjain.in/atom.xml" rel="self"/>
+  <link href="http://blog.vivekjain.in/"/>
+  <updated>2015-01-04T15:40:46+05:30</updated>
+  <id>http://blog.vivekjain.in/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Vivek Jain]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Keeping Client-side Apps Light]]></title>
-    <link href="http://vivekjain10.github.io/blog/2015/01/04/keeping-client-side-apps-light/"/>
+    <link href="http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light/"/>
     <updated>2015-01-04T15:17:25+05:30</updated>
-    <id>http://vivekjain10.github.io/blog/2015/01/04/keeping-client-side-apps-light</id>
+    <id>http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light</id>
     <content type="html"><![CDATA[<p>Let&rsquo;s assume that for an iOS app you&rsquo;re building, you have a requirement to display user&rsquo;s name. You check with the API team, they suggest using the user profile API. The name field in the user profile API response looks something like this:</p>
 
 <pre><code>  "name": {

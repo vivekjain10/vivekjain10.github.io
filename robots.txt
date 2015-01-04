@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://vivekjain10.github.io/sitemap.xml 
+Sitemap: http://blog.vivekjain.in/sitemap.xml 
