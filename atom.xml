@@ -4,7 +4,7 @@
   <title><![CDATA[in.vivekjain.blog]]></title>
   <link href="http://blog.vivekjain.in/atom.xml" rel="self"/>
   <link href="http://blog.vivekjain.in/"/>
-  <updated>2015-01-04T15:40:46+05:30</updated>
+  <updated>2015-01-04T16:00:18+05:30</updated>
   <id>http://blog.vivekjain.in/</id>
   <author>
     <name><![CDATA[Vivek Jain]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Keeping Client-side Apps Light]]></title>
+    <title type="html"><![CDATA[Keeping client-side apps light]]></title>
     <link href="http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light/"/>
     <updated>2015-01-04T15:17:25+05:30</updated>
     <id>http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light</id>
