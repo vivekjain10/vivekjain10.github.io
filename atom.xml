@@ -4,7 +4,7 @@
   <title><![CDATA[in.vivekjain.blog]]></title>
   <link href="http://blog.vivekjain.in/atom.xml" rel="self"/>
   <link href="http://blog.vivekjain.in/"/>
-  <updated>2015-05-31T14:23:50+05:30</updated>
+  <updated>2015-05-31T14:47:40+05:30</updated>
   <id>http://blog.vivekjain.in/</id>
   <author>
     <name><![CDATA[Vivek Jain]]></name>
@@ -25,6 +25,9 @@
 <p>To be able to successfuly test drive logic that we write in our applications, we need to structure the code appropriately. If we end up mixing the android view/lifecycle code with the logic that we need to test, the associated JUnits will start looking more like functional (end-to-end) tests rather than unit-tests.</p>
 
 <p>A popular pattern which helps move logic out of the views and facilitates testing of presentation logic is the <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">Model-View-Presenter</a> Patten. I&rsquo;ve created a <a href="https://www.youtube.com/watch?v=Asc4hU1iSTU">video</a> which walks through how legacy android code can be refactored using <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a>.</p>
+
+<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/Asc4hU1iSTU" frameborder="0" allowfullscreen> </iframe>
+
 
 <p>Code presented in the video is available on <a href="https://github.com/vivekjain10/AndroidUnitTesting">GitHub</a></p>
 
