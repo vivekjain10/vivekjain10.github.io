@@ -13,6 +13,8 @@ To be able to successfuly test drive logic that we write in our applications, we
 
 A popular pattern which helps move logic out of the views and facilitates testing of presentation logic is the [Model-View-Presenter](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter) Patten. I've created a [video](https://www.youtube.com/watch?v=Asc4hU1iSTU) which walks through how legacy android code can be refactored using [TDD](http://en.wikipedia.org/wiki/Test-driven_development).
 
+<iframe id="ytplayer" type="text/html" width="640" height="390" src="http://www.youtube.com/embed/Asc4hU1iSTU" frameborder="0" allowfullscreen> </iframe>
+
 Code presented in the video is available on [GitHub](https://github.com/vivekjain10/AndroidUnitTesting)
 
 * no_tests branch contains the initial code (without any unit tests)
