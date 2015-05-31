@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Keeping Client-side Apps Light - in.vivekjain.blog</title>
+  <title>Unit Testing Android Code Using the Model-View-Presenter Pattern - in.vivekjain.blog</title>
   <meta name="author" content="Vivek Jain">
 
   
-  <meta name="description" content="Let&rsquo;s assume for an iOS app you&rsquo;re building, you have a requirement to display user&rsquo;s name. You check with the API team, they &hellip;">
+  <meta name="description" content="Starting Android Studio 1.1, we have first-class unit-testing support. This allows us to unit test logic in android applications without the need to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light">
+  <link rel="canonical" href="http://blog.vivekjain.in/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="in.vivekjain.blog" type="application/atom+xml">
@@ -96,7 +96,7 @@
   <header>
     
       
-        <h1 class="entry-title">Keeping Client-side Apps Light</h1>
+        <h1 class="entry-title">Unit Testing Android Code Using the Model-View-Presenter Pattern</h1>
       
     
     
@@ -106,7 +106,7 @@
 
 
 
-<time class='entry-date' datetime='2015-01-04T15:17:25+05:30'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:17 pm</span></time>
+<time class='entry-date' datetime='2015-05-31T13:06:00+05:30'><span class='date'><span class='date-month'>May</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>1:06 pm</span></time>
         
         
       </p>
@@ -114,66 +114,21 @@
   </header>
 
 
-<div class="entry-content"><p>Let&rsquo;s assume for an iOS app you&rsquo;re building, you have a requirement to display user&rsquo;s name. You check with the API team, they suggest using the user profile API. The name field in the user profile API response looks something like this:</p>
+<div class="entry-content"><p>Starting Android Studio 1.1, we have <a href="http://tools.android.com/tech-docs/unit-testing-support">first-class unit-testing support</a>. This allows us to unit test logic in android applications without the need to start the Android device/emulator/vm.</p>
 
-<pre><code>  "name": {
-    "first": "Mark",
-    "last": "Hall"
-   }
-</code></pre>
+<p>This is big deal as the IDE now relies on local JVM to run unit-tests so that they are fast, keeping the feedback loop short. Being able to run unit-tests repeatedly and quickly allows developers to write more unit-tests and keep only minimal end-to-end functional tests (which are slow and brittle). If you&rsquo;d like to know about the benefits of writing more unit-tests compared to functional tests, I&rsquo;d recommend reading about the <a href="http://martinfowler.com/bliki/TestPyramid.html">TestPyramid</a>.</p>
 
-<p>Your product owner would like to see the full name, so you write code in the app to concatenate the first name and the last name. Everything looks good, and your changes go live.</p>
+<p>To be able to successfuly test drive logic that we write in our applications, we need to structure the code appropriately. If we end up mixing the android view/lifecycle code with the logic that we need to test, the associated JUnits will start looking more like functional (end-to-end) tests rather than unit-tests.</p>
 
-<p>After a couple of days, the same requirement is raised for the Android app. Android app developer checks how the full name was derived in the iOS app, goes ahead with a similar implementation.</p>
+<p>A popular pattern which helps move logic out of the views and facilitates testing of presentation logic is the <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">Model-View-Presenter</a> Patten. I&rsquo;ve created a <a href="https://www.youtube.com/watch?v=Asc4hU1iSTU">video</a> which walks through how legacy android code can be refactored using <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a>.</p>
 
-<p>At this point, logic to generate full name is duplicated in both the apps. In this particular example, duplication probably seems fine since the logic is not complicated. But if you keep adding small bits of logic like this in the client-side apps, you&rsquo;ll end up with a lot of duplication. And this duplication will increase significantly as you write new apps to support multiple platforms.</p>
-
-<p>To avoid this sort of duplication, we need to keep logic on the server-side as much as possible. There are multiple benefits of moving logic to the servers:</p>
+<p>Code presented in the video is available on <a href="https://github.com/vivekjain10/AndroidUnitTesting">GitHub</a></p>
 
 <ul>
-<li>First and the obvious one is to reduce duplication of logic on the client side. Client-side apps will simply see the required information coming back from the APIs. In the example above, we&rsquo;ll get a full name field along with the first and last name. The app is free to use whichever field makes most sense for the use case.</li>
-<li>Secondly, any defect related to logic shifted to the server-side can be fixed without requiring an app update.</li>
-<li>Lastly, changes can be applied without the need to release an update to the app. For example, if the back-end starts capturing middle name along with the first and last name fields, you&rsquo;ll simply update the logic to generate full name.</li>
+<li>no_tests branch contains the initial code (without any unit tests)</li>
+<li>with_tests branch contains the the final version presented in the video</li>
 </ul>
 
-
-<p>This bring us to the question, how can logic be shifted to the servers?</p>
-
-<p>Since server-side API development is a specialized skill, it&rsquo;s un-fair to expect client-side app developers to design great APIs. Thus, most organizations(specially large ones) have separate teams to manage their back-end services. But this does not mean client-side developers can&rsquo;t leverage server-side skills available in-house.</p>
-
-<p>I&rsquo;m listing three approaches that can be used to shift logic to servers:</p>
-
-<h4>Poly-skilled teams</h4>
-
-<p>When forming a team, ensure the team has all development skills required to manage the end-to-end stack. For example, a single team can have developers doing iOS, Android and server-side API development.</p>
-
-<p>Such a team should be empowered to take on changes in any repository that impacts their work. So in the example above, the server-side API developer would simply clone the user profile API code and make necessary changes to send back a full name field for the apps to consume.</p>
-
-<p>This approach is the most efficient but requires a level of maturity difficult to find in most organizations. Startups are an example where such an approach is easy to implement as everyone virtually knows everything there is to know.</p>
-
-<h4>Get the API teams to make necessary changes</h4>
-
-<p>When a requirement comes in, analyze the available API response and have a conversation with the API team to make changes in the API response itself. In the example above, this would mean asking for a full name field in the response.</p>
-
-<p>As long as the API response is not changing existing fields, and you are simply expanding the contract by adding new fields, the change should be easy to accommodate as it would not break existing consumers.</p>
-
-<p>This solution requires both the client-side and server-side developers to work together and design APIs. But this solution is difficult to implement unless the API team is flexible and there are clear communication channels established between the API and App developers.</p>
-
-<p>Most large organizations struggle with this approach and client-side developers end up bloating the code with logic which could have easily been shifted to the server. This brings us to the next approach which works best in situations where it&rsquo;s difficult to get the existing APIs to change.</p>
-
-<h4>Add an API facade layer</h4>
-
-<p>This approach is about adding a middle-layer which will be directly consumed by the client-side and it will in-turn talk to the back-end APIs. You can build this layer for multiple consumers as long as the content they consume is similar.</p>
-
-<p>Though most of the time this layer will simply act as a proxy for the back-end APIs, there are cases (like the one to generate full name) where additional fields can be added to generate appropriate response.</p>
-
-<p>An added benefit of this middle-layer is that it can filter out fields which are not required by it&rsquo;s consumers. For example, if we don&rsquo;t see the need for first and last name fields in the apps, they can be filtered out all-together. This helps keep the response size minimal.</p>
-
-<p>Note that even if you have this middle-layer, avoid adding business logic (something that requires domain knowledge) in this layer. It&rsquo;s probably alright to add business logic temporarily to help release something faster. But the goal should be to push all business logic to where it belongs.</p>
-
-<h4>To Conclude</h4>
-
-<p>Client-side code is expensive to change. Specially for mobile apps where an update needs to be downloaded. Additionally, some users are not willing to upgrade easily, and thus you are forced to support outdated apps. Thus, keep your client-side apps as light-weight as possible and push logic to your servers.</p>
 </div>
 
 
@@ -196,7 +151,7 @@
 
 
 
-<time class='entry-date' datetime='2015-01-04T15:17:25+05:30'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:17 pm</span></time>
+<time class='entry-date' datetime='2015-05-31T13:06:00+05:30'><span class='date'><span class='date-month'>May</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>1:06 pm</span></time>
       
       
 
@@ -205,7 +160,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light/" data-via="vivekjain10" data-counturl="http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://blog.vivekjain.in/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern/" data-via="vivekjain10" data-counturl="http://blog.vivekjain.in/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern/" >Tweet</a>
   
   
   
@@ -214,8 +169,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2015/01/04/keeping-client-side-apps-light/" title="Previous Post: Keeping client-side apps light">&laquo; Keeping client-side apps light</a>
       
-        <a class="basic-alignment right" href="/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern/" title="Next Post: Unit Testing Android Code using the Model-View-Presenter Pattern">Unit Testing Android Code using the Model-View-Presenter Pattern &raquo;</a>
       
     </p>
   </footer>

@@ -4,7 +4,7 @@
   <title><![CDATA[in.vivekjain.blog]]></title>
   <link href="http://blog.vivekjain.in/atom.xml" rel="self"/>
   <link href="http://blog.vivekjain.in/"/>
-  <updated>2015-01-04T19:21:11+05:30</updated>
+  <updated>2015-05-31T14:23:50+05:30</updated>
   <id>http://blog.vivekjain.in/</id>
   <author>
     <name><![CDATA[Vivek Jain]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Unit Testing Android Code Using the Model-View-Presenter Pattern]]></title>
+    <link href="http://blog.vivekjain.in/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern/"/>
+    <updated>2015-05-31T13:06:00+05:30</updated>
+    <id>http://blog.vivekjain.in/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern</id>
+    <content type="html"><![CDATA[<p>Starting Android Studio 1.1, we have <a href="http://tools.android.com/tech-docs/unit-testing-support">first-class unit-testing support</a>. This allows us to unit test logic in android applications without the need to start the Android device/emulator/vm.</p>
+
+<p>This is big deal as the IDE now relies on local JVM to run unit-tests so that they are fast, keeping the feedback loop short. Being able to run unit-tests repeatedly and quickly allows developers to write more unit-tests and keep only minimal end-to-end functional tests (which are slow and brittle). If you&rsquo;d like to know about the benefits of writing more unit-tests compared to functional tests, I&rsquo;d recommend reading about the <a href="http://martinfowler.com/bliki/TestPyramid.html">TestPyramid</a>.</p>
+
+<p>To be able to successfuly test drive logic that we write in our applications, we need to structure the code appropriately. If we end up mixing the android view/lifecycle code with the logic that we need to test, the associated JUnits will start looking more like functional (end-to-end) tests rather than unit-tests.</p>
+
+<p>A popular pattern which helps move logic out of the views and facilitates testing of presentation logic is the <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">Model-View-Presenter</a> Patten. I&rsquo;ve created a <a href="https://www.youtube.com/watch?v=Asc4hU1iSTU">video</a> which walks through how legacy android code can be refactored using <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a>.</p>
+
+<p>Code presented in the video is available on <a href="https://github.com/vivekjain10/AndroidUnitTesting">GitHub</a></p>
+
+<ul>
+<li>no_tests branch contains the initial code (without any unit tests)</li>
+<li>with_tests branch contains the the final version presented in the video</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Keeping Client-side Apps Light]]></title>

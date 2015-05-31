@@ -9,7 +9,7 @@
   <meta name="author" content="Vivek Jain">
 
   
-  <meta name="description" content="Let&rsquo;s assume for an iOS app you&rsquo;re building, you have a requirement to display user&rsquo;s name. You check with the API team, they &hellip;">
+  <meta name="description" content="Starting Android Studio 1.1, we have first-class unit-testing support. This allows us to unit test logic in android applications without the need to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,6 +92,50 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern/">Unit Testing Android Code Using the Model-View-Presenter Pattern</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-05-31T13:06:00+05:30'><span class='date'><span class='date-month'>May</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>1:06 pm</span></time>
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Starting Android Studio 1.1, we have <a href="http://tools.android.com/tech-docs/unit-testing-support">first-class unit-testing support</a>. This allows us to unit test logic in android applications without the need to start the Android device/emulator/vm.</p>
+
+<p>This is big deal as the IDE now relies on local JVM to run unit-tests so that they are fast, keeping the feedback loop short. Being able to run unit-tests repeatedly and quickly allows developers to write more unit-tests and keep only minimal end-to-end functional tests (which are slow and brittle). If you&rsquo;d like to know about the benefits of writing more unit-tests compared to functional tests, I&rsquo;d recommend reading about the <a href="http://martinfowler.com/bliki/TestPyramid.html">TestPyramid</a>.</p>
+
+<p>To be able to successfuly test drive logic that we write in our applications, we need to structure the code appropriately. If we end up mixing the android view/lifecycle code with the logic that we need to test, the associated JUnits will start looking more like functional (end-to-end) tests rather than unit-tests.</p>
+
+<p>A popular pattern which helps move logic out of the views and facilitates testing of presentation logic is the <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter">Model-View-Presenter</a> Patten. I&rsquo;ve created a <a href="https://www.youtube.com/watch?v=Asc4hU1iSTU">video</a> which walks through how legacy android code can be refactored using <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a>.</p>
+
+<p>Code presented in the video is available on <a href="https://github.com/vivekjain10/AndroidUnitTesting">GitHub</a></p>
+
+<ul>
+<li>no_tests branch contains the initial code (without any unit tests)</li>
+<li>with_tests branch contains the the final version presented in the video</li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>

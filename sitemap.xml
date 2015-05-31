@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+<<<<<<< HEAD
+=======
+    <loc>http://blog.vivekjain.in/blog/2015/05/31/unit-testing-android-code-using-the-model-view-presenter-pattern/</loc>
+    <lastmod>2015-05-31T13:06:00+05:30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+>>>>>>> Site updated at 2015-05-31 08:55:12 UTC
     <loc>http://blog.vivekjain.in/blog/2015/01/04/keeping-client-side-apps-light/</loc>
     <lastmod>2015-01-04T15:17:25+05:30</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>http://blog.vivekjain.in/blog/archives/</loc>
+<<<<<<< HEAD
     <lastmod>2015-01-04T19:21:11+05:30</lastmod>
+=======
+    <lastmod>2015-05-31T14:23:50+05:30</lastmod>
+>>>>>>> Site updated at 2015-05-31 08:55:12 UTC
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://blog.vivekjain.in/</loc>
+<<<<<<< HEAD
     <lastmod>2015-01-04T19:21:11+05:30</lastmod>
+=======
+    <lastmod>2015-05-31T14:23:50+05:30</lastmod>
+>>>>>>> Site updated at 2015-05-31 08:55:12 UTC
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
